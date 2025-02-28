@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X, LogOut } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
@@ -7,6 +7,7 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const { isAuthenticated, user, logout } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLogout = () => {
     logout();
@@ -36,8 +37,15 @@ const Header: React.FC = () => {
           <nav className="hidden md:flex space-x-6 items-center">
             <Link to="/" className="hover:text-purple-400 transition-colors">Home</Link>
             <Link to="/tests" className="hover:text-purple-400 transition-colors">Tests</Link>
+            <Link to="/blog" className="hover:text-purple-400 transition-colors">Blog</Link>
+            <Link to="/chat" className="hover:text-purple-400 transition-colors">Chat Support</Link>
             <Link to="/about" className="hover:text-purple-400 transition-colors">About</Link>
             <Link to="/resources" className="hover:text-purple-400 transition-colors">Resources</Link>
+            {isAuthenticated && user?.isAdmin && (
+              <Link to="/admin" className={`hover:text-purple-400 transition-colors ${
+                location.pathname === '/admin' ? 'text-purple-400' : ''
+              }`}>Admin</Link>
+            )}
             {isAuthenticated ? (
               <button
                 onClick={handleLogout}
@@ -77,6 +85,20 @@ const Header: React.FC = () => {
               Tests
             </Link>
             <Link 
+              to="/blog" 
+              className="hover:bg-gray-800 px-3 py-2 rounded transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Blog
+            </Link>
+            <Link 
+              to="/chat" 
+              className="hover:bg-gray-800 px-3 py-2 rounded transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Chat Support
+            </Link>
+            <Link 
               to="/about" 
               className="hover:bg-gray-800 px-3 py-2 rounded transition-colors"
               onClick={() => setIsMenuOpen(false)}
@@ -90,6 +112,15 @@ const Header: React.FC = () => {
             >
               Resources
             </Link>
+            {isAuthenticated && user?.isAdmin && (
+              <Link 
+                to="/admin" 
+                className="hover:bg-gray-800 px-3 py-2 rounded transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Admin Dashboard
+              </Link>
+            )}
             {isAuthenticated ? (
               <button
                 onClick={handleLogout}

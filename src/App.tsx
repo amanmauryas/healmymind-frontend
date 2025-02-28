@@ -11,6 +11,9 @@ import TestPage from './pages/TestPage';
 import ResultsPage from './pages/ResultsPage';
 import AboutPage from './pages/AboutPage';
 import ResourcesPage from './pages/ResourcesPage';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import BlogPage from './pages/BlogPage';
+import ChatBotPage from './pages/ChatBotPage';
 
 function App() {
   return (
@@ -28,6 +31,9 @@ function App() {
             <Route path="/resources" element={<ResourcesPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignUpPage />} />
+            <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/chat" element={<ChatBotPage />} />
           </Routes>
         </main>
         <Footer />

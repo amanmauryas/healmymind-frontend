@@ -1,9 +1,14 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
+interface User {
+  email: string;
+  isAdmin: boolean;
+}
+
 interface AuthContextType {
   isAuthenticated: boolean;
-  user: { email: string } | null;
-  login: (email: string) => void;
+  user: User | null;
+  login: (email: string, isAdmin?: boolean) => void;
   logout: () => void;
 }
 
@@ -11,7 +16,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [user, setUser] = useState<{ email: string } | null>(null);
+  const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
     // Check if user is logged in on mount
@@ -24,11 +29,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   }, []);
 
-  const login = (email: string) => {
+  const login = (email: string, isAdmin: boolean = false) => {
     setIsAuthenticated(true);
-    setUser({ email });
+    const userData = { email, isAdmin };
+    setUser(userData);
     localStorage.setItem('isAuthenticated', 'true');
-    localStorage.setItem('user', JSON.stringify({ email }));
+    localStorage.setItem('user', JSON.stringify(userData));
   };
 
   const logout = () => {

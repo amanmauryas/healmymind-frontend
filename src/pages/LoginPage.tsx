@@ -16,12 +16,14 @@ const LoginPage: React.FC = () => {
     try {
       // In a real application, this would be an API call
       if (email && password) {
-        login(email);
-        navigate('/');
+        // For testing purposes, make user@admin.com an admin user
+        const isAdmin = email === 'admin@neuralytics.ai';
+        login(email, isAdmin);
+        navigate(isAdmin ? '/admin' : '/');
       } else {
         setError('Please fill in all fields');
       }
-    } catch (err) {
+    } catch {
       setError('Login failed. Please try again.');
     }
   };
@@ -30,9 +32,9 @@ const LoginPage: React.FC = () => {
     try {
       // In a real application, this would integrate with Google OAuth
       // For now, we'll simulate a successful Google login
-      login('google.user@gmail.com');
+      login('google.user@gmail.com', false);
       navigate('/');
-    } catch (err) {
+    } catch {
       setError('Google login failed. Please try again.');
     }
   };
