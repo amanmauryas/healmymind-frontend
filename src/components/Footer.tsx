@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-purple-400">neuralytics.ai</h3>
+            <h3 className="text-lg font-semibold mb-4 text-purple-400">healmymind.ai</h3>
             <p className="text-gray-400">
               A mental health screening tool to help you understand your symptoms.
               This is not a diagnostic tool and should not replace professional medical advice.
@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
             Made with <Heart size={16} className="mx-1 text-pink-500" /> for mental health awareness
           </p>
           <p className="mt-2">
-            © {new Date().getFullYear()} neuralytics.ai. All rights reserved.
+            © {new Date().getFullYear()} healmymind.ai. All rights reserved.
           </p>
         </div>
       </div>

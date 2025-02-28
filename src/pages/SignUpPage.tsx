@@ -4,32 +4,26 @@ import { useAuth } from '../context/AuthContext';
 
 const SignUpPage: React.FC = () => {
   const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [error, setError] = useState('');
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { register, error, loading } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
 
     if (password !== confirmPassword) {
-      setError('Passwords do not match');
+      alert('Passwords do not match');
       return;
     }
 
     try {
-      // In a real application, this would be an API call to create a new user
-      if (email && password) {
-        // Simulate successful registration
-        login(email);
-        navigate('/');
-      } else {
-        setError('Please fill in all fields');
-      }
+      await register(email, username, password, confirmPassword);
+      navigate('/');
     } catch (err) {
-      setError('Registration failed. Please try again.');
+      // Error is handled by AuthContext
+      console.error('Registration failed:', err);
     }
   };
 
@@ -44,11 +38,11 @@ const SignUpPage: React.FC = () => {
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <div className="rounded-md shadow-sm space-y-4">
             <div>
-              <label htmlFor="signup-email" className="sr-only">
+              <label htmlFor="email" className="sr-only">
                 Email address
               </label>
               <input
-                id="signup-email"
+                id="email"
                 name="email"
                 type="email"
                 autoComplete="email"
@@ -57,14 +51,32 @@ const SignUpPage: React.FC = () => {
                 placeholder="Email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                disabled={loading}
               />
             </div>
             <div>
-              <label htmlFor="signup-password" className="sr-only">
+              <label htmlFor="username" className="sr-only">
+                Username
+              </label>
+              <input
+                id="username"
+                name="username"
+                type="text"
+                autoComplete="username"
+                required
+                className="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-700 bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                placeholder="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                disabled={loading}
+              />
+            </div>
+            <div>
+              <label htmlFor="password" className="sr-only">
                 Password
               </label>
               <input
-                id="signup-password"
+                id="password"
                 name="password"
                 type="password"
                 required
@@ -72,6 +84,7 @@ const SignUpPage: React.FC = () => {
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                disabled={loading}
               />
             </div>
             <div>
@@ -87,6 +100,7 @@ const SignUpPage: React.FC = () => {
                 placeholder="Confirm Password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
+                disabled={loading}
               />
             </div>
           </div>
@@ -98,9 +112,10 @@ const SignUpPage: React.FC = () => {
           <div>
             <button
               type="submit"
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 disabled:opacity-50"
+              disabled={loading}
             >
-              Sign up
+              {loading ? 'Creating account...' : 'Sign up'}
             </button>
           </div>
 

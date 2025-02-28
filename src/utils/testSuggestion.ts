@@ -1,10 +1,7 @@
-import { OpenAI } from 'openai';
+import { GoogleGenerativeAI } from "@google/generative-ai";
 import testsData from '../data/tests.json';
 
-const openai = new OpenAI({
-  apiKey: 'YOUR_OPENAI_API_KEY', // Replace with your actual API key or use environment variables
-  dangerouslyAllowBrowser: true // Only for demo purposes
-});
+const genAI = new GoogleGenerativeAI('YOUR_GEMINI_API_KEY'); // Replace with your actual API key or use environment variables
 
 export interface SuggestionAnswers {
   feeling: string;
@@ -36,23 +33,13 @@ Please analyze the responses and suggest the most appropriate test ID from: ${te
 
 Respond only with the most appropriate test ID.`;
 
-    const response = await openai.chat.completions.create({
-      model: "gpt-4",
-      messages: [
-        {
-          role: "system",
-          content: "You are a mental health screening assistant. Your role is to suggest the most appropriate screening test based on user responses. Respond only with the test ID."
-        },
-        {
-          role: "user",
-          content: prompt
-        }
-      ],
-      temperature: 0.3,
-      max_tokens: 50
-    });
+    // Get the generative model
+    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
-    const suggestion = response.choices[0].message.content?.trim().toLowerCase();
+    // Generate content
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    const suggestion = response.text().trim().toLowerCase();
     
     // Validate the suggestion is one of our available tests
     if (suggestion && testsData.tests.some(test => test.id === suggestion)) {
@@ -109,7 +96,7 @@ function fallbackSuggestion(answers: SuggestionAnswers): string {
   };
 
   // Check each answer against keywords for each category and test
-  Object.entries(keywords).forEach(([category, tests]) => {
+  Object.values(keywords).forEach((tests) => {
     Object.entries(tests).forEach(([testId, words]) => {
       words.forEach(word => {
         const pattern = new RegExp(word, 'i');

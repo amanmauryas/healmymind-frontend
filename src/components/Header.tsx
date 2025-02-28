@@ -22,7 +22,7 @@ const Header: React.FC = () => {
           <Link to="/" className="flex items-center space-x-2 group">
             <div className="bg-gradient-to-br from-purple-500 to-indigo-600 p-2 rounded-lg shadow-md group-hover:shadow-purple-500/30 transition-all duration-300">
             </div>
-            <span className="text-xl font-bold gradient-text">neuralytics.ai</span>
+            <span className="text-3xl font-extrabold gradient-text">healmymind.ai</span>
           </Link>
           
           {/* Mobile menu button */}
@@ -127,6 +127,8 @@ const Header: React.FC = () => {
                 className="flex items-center w-full text-left hover:bg-gray-800 px-3 py-2 rounded transition-colors"
                 aria-label="Logout"
               >
+                <Link to="/dashboard" className="text-white mx-4">Dashboard</Link>
+                <button onClick={logout} className="text-white mx-4">Logout</button>
                 <LogOut size={18} className="mr-2" />
                 Logout
               </button>
@@ -147,3 +149,4 @@ const Header: React.FC = () => {
 };
 
 export default Header;
+              

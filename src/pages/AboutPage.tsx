@@ -6,12 +6,12 @@ const AboutPage: React.FC = () => {
     <div className="min-h-screen bg-gray-900 py-12">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-3xl md:text-4xl font-bold mb-6 text-center text-white">About neuralytics.ai</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-6 text-center text-white">About healmymind.ai</h1>
           
           <div className="bg-gray-800 rounded-lg shadow-md p-8 mb-8">
             <h2 className="text-2xl font-semibold mb-4 text-white">Our Mission</h2>
             <p className="text-gray-300 mb-4">
-              neuralytics.ai was created with a simple but powerful mission: to make mental health screening accessible to everyone. 
+              healmymind.ai was created with a simple but powerful mission: to make mental health screening accessible to everyone. 
               We believe that understanding your mental health is the first step toward wellness, and our goal is to provide 
               tools that help you gain insights into your psychological well-being.
             </p>
@@ -60,7 +60,7 @@ const AboutPage: React.FC = () => {
           <div className="bg-gray-800 rounded-lg shadow-md p-8 mb-8">
             <h2 className="text-2xl font-semibold mb-4 text-white">About Our Tests</h2>
             <p className="text-gray-300 mb-4">
-              The screening tools available on neuralytics.ai are based on standardized questionnaires used by healthcare professionals:
+              The screening tools available on healmymind.ai are based on standardized questionnaires used by healthcare professionals:
             </p>
             
             <ul className="list-disc pl-6 mb-4 space-y-2 text-gray-300">
@@ -94,7 +94,7 @@ const AboutPage: React.FC = () => {
             </p>
             <div className="bg-yellow-900/20 border-l-4 border-yellow-500 p-4">
               <p className="text-yellow-300">
-                <strong>Important:</strong> neuralytics.ai is an educational tool, not a diagnostic service. Always consult with 
+                <strong>Important:</strong> healmymind.ai is an educational tool, not a diagnostic service. Always consult with 
                 a healthcare professional for proper evaluation, diagnosis, and treatment of mental health conditions.
               </p>
             </div>

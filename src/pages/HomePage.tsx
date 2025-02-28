@@ -148,7 +148,7 @@ const HomePage: React.FC = () => {
             animate={featuresInView ? "visible" : "hidden"}
             variants={containerVariants}
           >
-            <motion.h2 variants={itemVariants} className="section-title">How neuralytics.ai Helps You</motion.h2>
+            <motion.h2 variants={itemVariants} className="section-title">How healmymind.ai Helps You</motion.h2>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
               <motion.div variants={itemVariants} className="card group">
@@ -270,7 +270,7 @@ const HomePage: React.FC = () => {
             <div className="bg-gray-800 rounded-xl p-6 border border-gray-700 relative">
               <div className="absolute -top-4 left-6 text-5xl text-purple-500">"</div>
               <p className="text-gray-300 mt-4 mb-6">
-                neuralytics.ai helped me understand my anxiety symptoms and gave me the confidence to finally talk to a therapist. The AI analysis was surprisingly insightful.
+                healmymind.ai helped me understand my anxiety symptoms and gave me the confidence to finally talk to a therapist. The AI analysis was surprisingly insightful.
               </p>
               <div className="flex items-center">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold">S</div>
