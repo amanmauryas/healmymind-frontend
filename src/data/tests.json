@@ -1,0 +1,189 @@
+{
+  "tests": [
+    {
+      "id": "depression-phq9",
+      "name": "Depression Screening Test (PHQ-9)",
+      "category": "mood",
+      "description": "The Patient Health Questionnaire (PHQ-9) is a self-administered depression scale used for screening, diagnosing, monitoring, and measuring the severity of depression.",
+      "instructions": "Over the last 2 weeks, how often have you been bothered by any of the following problems?",
+      "questions": [
+        {
+          "id": "phq1",
+          "text": "Little interest or pleasure in doing things",
+          "options": [
+            { "value": 0, "text": "Not at all" },
+            { "value": 1, "text": "Several days" },
+            { "value": 2, "text": "More than half the days" },
+            { "value": 3, "text": "Nearly every day" }
+          ]
+        },
+        {
+          "id": "phq2",
+          "text": "Feeling down, depressed, or hopeless",
+          "options": [
+            { "value": 0, "text": "Not at all" },
+            { "value": 1, "text": "Several days" },
+            { "value": 2, "text": "More than half the days" },
+            { "value": 3, "text": "Nearly every day" }
+          ]
+        }
+      ],
+      "scoring": {
+        "ranges": [
+          { "min": 0, "max": 4, "severity": "Minimal or none", "description": "Your symptoms are not indicative of depression." },
+          { "min": 5, "max": 9, "severity": "Mild", "description": "You may be experiencing mild depression. Consider discussing these feelings with a healthcare provider." },
+          { "min": 10, "max": 14, "severity": "Moderate", "description": "You may be experiencing moderate depression. It's recommended to consult with a mental health professional." },
+          { "min": 15, "max": 19, "severity": "Moderately severe", "description": "You may be experiencing moderately severe depression. Please consider seeking professional help soon." },
+          { "min": 20, "max": 27, "severity": "Severe", "description": "You may be experiencing severe depression. It's strongly recommended to seek professional help immediately." }
+        ]
+      }
+    },
+    {
+      "id": "anxiety-gad7",
+      "name": "Generalized Anxiety Disorder Test (GAD-7)",
+      "category": "anxiety",
+      "description": "The GAD-7 is a self-reported questionnaire for screening and measuring the severity of generalized anxiety disorder.",
+      "instructions": "Over the last 2 weeks, how often have you been bothered by the following problems?",
+      "questions": [
+        {
+          "id": "gad1",
+          "text": "Feeling nervous, anxious, or on edge",
+          "options": [
+            { "value": 0, "text": "Not at all" },
+            { "value": 1, "text": "Several days" },
+            { "value": 2, "text": "More than half the days" },
+            { "value": 3, "text": "Nearly every day" }
+          ]
+        },
+        {
+          "id": "gad2",
+          "text": "Not being able to stop or control worrying",
+          "options": [
+            { "value": 0, "text": "Not at all" },
+            { "value": 1, "text": "Several days" },
+            { "value": 2, "text": "More than half the days" },
+            { "value": 3, "text": "Nearly every day" }
+          ]
+        }
+      ],
+      "scoring": {
+        "ranges": [
+          { "min": 0, "max": 4, "severity": "Minimal anxiety", "description": "Your symptoms are not indicative of anxiety." },
+          { "min": 5, "max": 9, "severity": "Mild anxiety", "description": "You may be experiencing mild anxiety. Consider discussing these feelings with a healthcare provider." },
+          { "min": 10, "max": 14, "severity": "Moderate anxiety", "description": "You may be experiencing moderate anxiety. It's recommended to consult with a mental health professional." },
+          { "min": 15, "max": 21, "severity": "Severe anxiety", "description": "You may be experiencing severe anxiety. It's strongly recommended to seek professional help." }
+        ]
+      }
+    },
+    {
+      "id": "alcohol-audit",
+      "name": "Alcohol Use Disorders Identification Test (AUDIT)",
+      "category": "substance",
+      "description": "The AUDIT is a screening tool developed by the World Health Organization (WHO) to assess alcohol consumption, drinking behaviors, and alcohol-related problems.",
+      "instructions": "Please select the answer that is correct for you during the past year.",
+      "questions": [
+        {
+          "id": "audit1",
+          "text": "How often do you have a drink containing alcohol?",
+          "options": [
+            { "value": 0, "text": "Never" },
+            { "value": 1, "text": "Monthly or less" },
+            { "value": 2, "text": "2-4 times a month" },
+            { "value": 3, "text": "2-3 times a week" },
+            { "value": 4, "text": "4 or more times a week" }
+          ]
+        },
+        {
+          "id": "audit2",
+          "text": "How many drinks containing alcohol do you have on a typical day when you are drinking?",
+          "options": [
+            { "value": 0, "text": "1 or 2" },
+            { "value": 1, "text": "3 or 4" },
+            { "value": 2, "text": "5 or 6" },
+            { "value": 3, "text": "7 to 9" },
+            { "value": 4, "text": "10 or more" }
+          ]
+        }
+      ],
+      "scoring": {
+        "ranges": [
+          { "min": 0, "max": 7, "severity": "Low risk", "description": "Your drinking patterns appear to be low-risk." },
+          { "min": 8, "max": 15, "severity": "Moderate risk", "description": "Your drinking patterns suggest a moderate risk. Consider discussing with a healthcare provider." },
+          { "min": 16, "max": 19, "severity": "High risk", "description": "Your drinking patterns suggest a high risk. It's recommended to seek professional help." },
+          { "min": 20, "max": 40, "severity": "Severe risk", "description": "Your drinking patterns suggest a severe risk. Please seek professional help immediately." }
+        ]
+      }
+    },
+    {
+      "id": "insomnia-isi",
+      "name": "Insomnia Severity Index (ISI)",
+      "category": "sleep",
+      "description": "The Insomnia Severity Index is a brief screening measure to assess the severity of both nighttime and daytime components of insomnia.",
+      "instructions": "For each question, please select the number that best describes your sleep patterns in the last two weeks.",
+      "questions": [
+        {
+          "id": "isi1",
+          "text": "How severe are your current sleep problems?",
+          "options": [
+            { "value": 0, "text": "None" },
+            { "value": 1, "text": "Mild" },
+            { "value": 2, "text": "Moderate" },
+            { "value": 3, "text": "Severe" },
+            { "value": 4, "text": "Very Severe" }
+          ]
+        },
+        {
+          "id": "isi2",
+          "text": "How satisfied/dissatisfied are you with your current sleep pattern?",
+          "options": [
+            { "value": 0, "text": "Very Satisfied" },
+            { "value": 1, "text": "Satisfied" },
+            { "value": 2, "text": "Neutral" },
+            { "value": 3, "text": "Dissatisfied" },
+            { "value": 4, "text": "Very Dissatisfied" }
+          ]
+        }
+      ],
+      "scoring": {
+        "ranges": [
+          { "min": 0, "max": 7, "severity": "No clinically significant insomnia", "description": "Your responses do not suggest clinically significant insomnia." },
+          { "min": 8, "max": 14, "severity": "Subthreshold insomnia", "description": "You may be experiencing mild sleep difficulties." },
+          { "min": 15, "max": 21, "severity": "Moderate insomnia", "description": "You may be experiencing moderate clinical insomnia." },
+          { "min": 22, "max": 28, "severity": "Severe insomnia", "description": "You may be experiencing severe clinical insomnia." }
+        ]
+      }
+    },
+    {
+      "id": "borderline-msi",
+      "name": "McLean Screening Instrument for BPD (MSI-BPD)",
+      "category": "personality",
+      "description": "The MSI-BPD is a 10-item screening measure for Borderline Personality Disorder (BPD).",
+      "instructions": "Please answer yes or no to the following questions about how you have felt and behaved over the past 2 years.",
+      "questions": [
+        {
+          "id": "msi1",
+          "text": "Have you often become frantic when you thought that someone you really cared about was going to leave you?",
+          "options": [
+            { "value": 0, "text": "No" },
+            { "value": 1, "text": "Yes" }
+          ]
+        },
+        {
+          "id": "msi2",
+          "text": "Have your relationships with people you really care about had lots of extreme ups and downs?",
+          "options": [
+            { "value": 0, "text": "No" },
+            { "value": 1, "text": "Yes" }
+          ]
+        }
+      ],
+      "scoring": {
+        "ranges": [
+          { "min": 0, "max": 3, "severity": "Unlikely BPD", "description": "Your responses suggest that BPD traits are unlikely." },
+          { "min": 4, "max": 6, "severity": "Possible BPD", "description": "Your responses suggest possible BPD traits. Consider professional evaluation." },
+          { "min": 7, "max": 10, "severity": "Likely BPD", "description": "Your responses suggest likely BPD traits. It's recommended to seek professional evaluation." }
+        ]
+      }
+    }
+  ]
+}
